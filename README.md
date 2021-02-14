@@ -11,6 +11,11 @@ The main files in this repository are:
 * `service.yaml` contains values (typically configured by a developer) that will be instantiated into the Kubernetes manifest
 * `app.py` is the actual Python/Flask application
 
+# Example curl
+```
+curl -v -XPOST -H "Content-Type: application/json" -d @citylots.json 172.30.231.231:8000
+```
+
 # License
 
 Licensed under Apache 2.0. Please see [LICENSE](LICENSE) for details.

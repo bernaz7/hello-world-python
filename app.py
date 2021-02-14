@@ -2,6 +2,7 @@
 
 import time
 from flask import Flask
+from flask import request
 app = Flask(__name__)
 
 START = time.time()
@@ -12,9 +13,10 @@ def elapsed():
     hours, minutes = divmod(minutes, 60)
     return "%d:%02d:%02d" % (hours, minutes, seconds)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def root():
+    data = request.get_json()
     return "Hello World (Python)! (up %s)\n" % elapsed()
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
+    app.run(debug=True, host="0.0.0.0", port=8000)
